@@ -1,7 +1,10 @@
 const API_URL = '/api';
+const VERSION = 'v1.1.0-tp';
 
 const healthElement = document.querySelector('#health');
 const productsElement = document.querySelector('#products');
+
+document.querySelector('#version-display').textContent = `Application en cours : ${VERSION}`;
 
 document.querySelector('#check-api').addEventListener('click', async () => {
   try {

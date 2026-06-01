@@ -3,7 +3,17 @@ const router = express.Router();
 const pool = require('../db');
 
 router.get('/', async (req, res) => {
-  res.status(500).json({ error: 'Incident simulé : endpoint products hors service' });
+  try {
+    const result = await pool.query(
+      'SELECT id, name, description, price_cents, stock FROM products ORDER BY id ASC'
+    );
+    res.json(result.rows);
+  } catch (error) {
+    res.status(500).json({
+      error: 'Impossible de récupérer les produits',
+      message: error.message
+    });
+  }
 });
 
 router.get('/:id', async (req, res) => {

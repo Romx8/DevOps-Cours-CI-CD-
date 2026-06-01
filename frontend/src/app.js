@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+const API_URL = '/api';
 
 const healthElement = document.querySelector('#health');
 const productsElement = document.querySelector('#products');
